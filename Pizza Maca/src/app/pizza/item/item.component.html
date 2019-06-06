@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-4">
+    <img  src="../../../assets/images/pizzas/{{pizza.picture}}" width="100%" />
+  </div>
+  <div class="col-8">
+    <div class="row">
+      <div class="col">
+        <h4>{{pizza.name}}</h4>
+      </div>
+    </div>
+    <div class="row">
+    <div class="col">
+      <p>{{pizza.description}}</p>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-6">
+        <p>{{pizza.price}}$</p>
+      </div>
+      <div class="col-6">
+        <p class="float-right">{{pizza.grade}}/5</p>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-6">
+      <img *ngIf="pizza.discount == true" src="../../../assets/images/discount.png" width="35px" />
+      <img *ngIf="pizza.vegetarian == true" src="../../../assets/images/vegetarian.png" width="35px"/>
+    </div>
+    <div class="col-6">
+      <button class="btn btn-danger float-right" type="button" (click)="KupiPizzu()">Add to cart</button>
+    </div>
+  </div>
+    <br/>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col">
+    <table class="table table-striped">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+      </tr>
+      <tr *ngFor="let c of cart; let i=index" scope="row">
+        <td>{{i+1}}</td>
+        <td>{{c?.name}}</td>
+        <td>{{c?.price}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col">
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;Total:&nbsp;{{total.toFixed(2)}}$</h4>
+  </div>
+</div>
+
+        <form class="form-horizontal" [formGroup]="formOrder" (submit)="onSubmit()">
+            <div class="form-group row">
+                &nbsp;&nbsp;&nbsp;<label for="address" class="col-sm-3 col-form-label">Address</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="address" formControlName="address" placeholder="Street name and number">
+                <small class="text-danger" *ngIf="formOrder.controls.address.touched && formOrder.controls.address.errors?.required">
+                    Address is required</small>
+              </div>
+            </div>
+            <div class="form-group row">
+                &nbsp;&nbsp;&nbsp;<label for="appartment" class="col-sm-3 col-form-label">Appartment</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="appartment" formControlName="appartment" placeholder="Floor and flat number">
+                <small class="text-danger" *ngIf="formOrder.controls.appartment.touched && formOrder.controls.appartment.errors?.required">
+                    Appartment is required</small>
+              </div>
+            </div>
+            <div class="form-group row">
+                &nbsp;&nbsp;&nbsp;<label for="telephone" class="col-sm-3 col-form-label">Telephone</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="telephone" formControlName="telephone" placeholder="Telephone">
+                <small class="text-danger" *ngIf="formOrder.controls.telephone.touched && formOrder.controls.telephone.errors?.required">
+                    Telephone is required</small>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-4"></div>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-danger btn-block" [disabled]="formOrder.invalid">Order</button>
+                    <button type="button" class="btn btn-danger btn-block" (click)="addMore()">add more</button>
+                </div>
+              </div>
+          </form>
+
+         
+    
